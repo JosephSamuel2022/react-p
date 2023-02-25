@@ -2,14 +2,16 @@ import React from "react"
 class AddContact extends React.Component{
     render(){
         return (
-            <div>
+            <div className="ui main">
                 <h2>Add Contact</h2>
-                <form className="form1">
-                    <label>Name : </label>
-                    <input type="text" name ="name"></input>
-                    <br></br>
-                    <label>Phone Number : </label>
-                    <input type="number" name ="num"></input>
+                <form className="ui form">
+                <div className="field"><label>Name : </label>
+                    <input type="text" name ="name" size="100"></input>
+                    </div>
+                    <div className="field"><label>Phone Number : </label>
+                    <input type="number" name ="num" maxLength="10" size="100"></input>
+                    </div>
+                    <button className="ui button blue" >Add</button>
                 </form>
             </div>
         )
