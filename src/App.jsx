@@ -9,21 +9,8 @@ import Header from './Header'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-const contacts=[{
- 
-  name: "sam",
-  number: 8925139905
+  const [contacts, setContacts] = useState([])
 
-},
-{
-  
-  name: "eni",
-  number: 9940581995
-
-}
-
-];
   return (
    <div>
     <Header />
