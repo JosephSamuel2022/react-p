@@ -11,7 +11,8 @@ class AddContact extends React.Component{
             alert("All the fields are mandatory")
             return
         }
-        console.log(this.state)
+        this.props.addcontacthandler(this.state);//child using function as props to send to parent
+        this.setState({name:"",number:""})
 
     }
     
