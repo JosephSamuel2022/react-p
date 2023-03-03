@@ -20,8 +20,7 @@ function App() {
     setContacts([...contacts,{id:r,...contact}])
     localStorage.setItem(
       localstoragekey,
-      JSON.stringify([...contacts, contact])
-    )
+      JSON.stringify([...contacts, contact]))
   }
 
   const removecontacthandler=(id)=>{
@@ -29,6 +28,10 @@ function App() {
       return contact.id!=id;
     })
     setContacts(newcontactlist)
+    localStorage.setItem(
+      localstoragekey,
+      JSON.stringify(newcontactlist)
+    )
   }
 
   
