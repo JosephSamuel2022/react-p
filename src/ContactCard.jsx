@@ -2,7 +2,7 @@ import React from "react"
 import user from "./images/user.png"
 const ContactCard=(props)=>{
     //destructuring
-    const {name,number}=props.contact;
+    const {id,name,number}=props.contact;
 
     return(<div className="item">
         <img className="ui avatar image" src={user} alt="user"></img>
@@ -11,7 +11,7 @@ const ContactCard=(props)=>{
     <div className="header">{name}</div>
  
     <div>{number}
-    <i className="trash alternate outline icon" style={{color:"red" ,marginLeft:"10px"}}></i></div>
+    <i className="trash alternate outline icon" style={{color:"red" ,marginLeft:"10px"}} onClick={()=>props.clickHandler(id)}></i></div>
     
     </div>
     </div>)

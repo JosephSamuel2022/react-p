@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react'
+//import { v4 as uuid } from 'uuid'
 import reactLogo from './assets/react.svg'
 import React from "react"
 //import './App.css'
@@ -15,8 +16,26 @@ function App() {
 
   const addcontacthandler=(contact)=>{
     console.log(contact);//passing functions as props
-    setContacts([...contacts,contact])
+    const r=crypto.randomUUID();
+    setContacts([...contacts,{id:r,...contact}])
+    localStorage.setItem(
+      localstoragekey,
+      JSON.stringify([...contacts, contact])
+    )
   }
+
+  const removecontacthandler=(id)=>{
+    const newcontactlist=contacts.filter((contact)=>{
+      return contact.id!=id;
+    })
+    setContacts(newcontactlist)
+  }
+
+  
+ /* useEffect(()=>{
+    localStorage.setItem(localstoragekey,JSON.stringify(contacts))
+
+  },[contacts])*/
 
   useEffect(()=>{
     const retrived=JSON.parse(localStorage.getItem(localstoragekey))
@@ -26,10 +45,7 @@ function App() {
   },[])
  
 
-  useEffect(()=>{
-    localStorage.setItem(localstoragekey,JSON.stringify(contacts))
-
-  },[contacts])
+  
 
   
 
@@ -38,7 +54,7 @@ function App() {
     <Header />
     
      <AddContact addcontacthandler={addcontacthandler}/>
-   <ContactList contacts={contacts}/> 
+   <ContactList contacts={contacts} getcontactid={removecontacthandler}/> 
    </div>
   )
 }
